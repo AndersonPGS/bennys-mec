@@ -13,8 +13,6 @@ export default function Home() {
 
   const dataFullTuningTypes = [
     { name: "Sem Full Tuning" },
-    { name: "LV3 - Sem Blindagem" },
-    { name: "LV3 - Com Blindagem" },
     { name: "LV4 - Sem Blindagem" },
     { name: "LV4 - Com Blindagem" }
   ]
@@ -80,64 +78,64 @@ export default function Home() {
 
   const date = new Date()
 
-  // const storeDate = (value: string) => {
-  //   AsyncStorage.setItem("date", value)
-  // }
+  const storeDate = (value: string) => {
+    localStorage.setItem("date", value)
+  }
 
-  // const getStoredDate = async () => {
-  //   const value = await AsyncStorage.getItem("date")
+  const getStoredDate = async () => {
+    const value = localStorage.getItem("date")
 
-  //   if (value !== null) {
-  //     return value
-  //   } else {
-  //     const todayDate = date.getDate().toString()
-  //     return todayDate
-  //   }
-  // }
+    if (value !== null) {
+      return value
+    } else {
+      const todayDate = date.getDate().toString()
+      return todayDate
+    }
+  }
 
-  // const storeKits = (value: string) => {
-  //   AsyncStorage.setItem("kits", value)
-  // }
+  const storeKits = (value: string) => {
+    localStorage.setItem("kits", value)
+  }
 
-  // const getStoredKits = async () => {
-  //   const value = await AsyncStorage.getItem("kits")
+  const getStoredKits = async () => {
+    const value = localStorage.getItem("kits")
 
-  //   if (value !== null) {
-  //     setSelledKits(+value)
-  //   } else {
-  //     setSelledKits(0)
-  //   }
-  // }
+    if (value !== null) {
+      setSelledKits(+value)
+    } else {
+      setSelledKits(0)
+    }
+  }
 
-  // const storePneus = (value: string) => {
-  //   AsyncStorage.setItem("pneus", value)
-  // }
+  const storePneus = (value: string) => {
+    localStorage.setItem("pneus", value)
+  }
 
-  // const getStoredPneus = async () => {
-  //   const value = await AsyncStorage.getItem("pneus")
+  const getStoredPneus = async () => {
+    const value = localStorage.getItem("pneus")
 
-  //   if (value !== null) {
-  //     setSelledPneus(+value)
-  //   } else {
-  //     setSelledPneus(0)
-  //   }
-  // }
+    if (value !== null) {
+      setSelledPneus(+value)
+    } else {
+      setSelledPneus(0)
+    }
+  }
 
-  // useEffect(() => {
-  //   const currentDate = date.getDate().toString()
-  //   const storedDate = getStoredDate().then(data => { return data })
-  //   async function checkStored() {
-  //     if (await storedDate == currentDate) {
-  //       getStoredKits()
-  //       getStoredPneus()
-  //     } else {
-  //       storeDate(currentDate)
-  //       storeKits("0")
-  //       storePneus("0")
-  //     }
-  //   }
-  //   checkStored()
-  // }, [])
+  useEffect(() => {
+    const currentDate = date.getDate().toString()
+    const storedDate = getStoredDate()
+    async function checkStored() {
+      if (await storedDate == currentDate) {
+        getStoredKits()
+        getStoredPneus()
+      } else {
+        storeDate(currentDate)
+        storeKits("0")
+        storePneus("0")
+      }
+    }
+    checkStored()
+  }, [])
 
   useEffect(() => {
     let costPerKit = isPartner ? 2000 : 2500
@@ -155,79 +153,79 @@ export default function Home() {
     }
 
     if (hasSpoiler) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasFrontBumper) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasRearBumper) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasSideSkirt) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasExhaust) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasRollcage) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasRoof) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasHood) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasWindowTint) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasNeons) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasXenon) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasWheels) {
-      totalCost += 8000
+      totalCost += 10000
     }
 
     if (hasPlateIndex) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasColorPrimary) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasColorSecondary) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasColorPearlescent) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasColorWheels) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasColorInterior) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     if (hasColorDashboard) {
-      totalCost += 3000
+      totalCost += 4000
     }
 
     setTotalPrice(totalCost)
@@ -265,21 +263,198 @@ export default function Home() {
     ]
   )
 
-  // useEffect(() => {
-  //   if (selledKits > 0) {
-  //     storeKits(selledKits.toString())
-  //   }
-  //   if (selledPneus > 0) {
-  //     storePneus(selledPneus.toString())
-  //   }
-  // }, [selledKits, selledPneus])
+  useEffect(() => {
+    switch (valueFullTuning.name) {
+      case "Sem Full Tuning":
+        //Sem Full Tuning
+        setPriceFullTuning(0)
+        break;
+      case "LV4 - Sem Blindagem":
+        //Level 4 - Sem Blindagem
+        setPriceFullTuning(170000)
+
+        //Set all selection default
+        setPriceTransmission(0)
+        setValueTransmission(dataDefaultTypes[0])
+        setPriceSuspension(0)
+        setValueSuspension(dataDefaultTypes[0])
+        setPriceEngine(0)
+        setValueEngine(dataDefaultTypes[0])
+        setPriceBrake(0)
+        setValueBrake(dataDefaultTypes[0])
+        setPriceShield(0)
+        setValueShield(dataShieldTypes[0])
+        setPriceTurbo(0)
+        setValueTurbo(dataTurboTypes[0])
+        break;
+      case "LV4 - Com Blindagem":
+        //Level 4 - Com Blindagem
+        setPriceFullTuning(260000)
+
+        //Set all selection default
+        setPriceTransmission(0)
+        setValueTransmission(dataDefaultTypes[0])
+        setPriceSuspension(0)
+        setValueSuspension(dataDefaultTypes[0])
+        setPriceEngine(0)
+        setValueEngine(dataDefaultTypes[0])
+        setPriceBrake(0)
+        setValueBrake(dataDefaultTypes[0])
+        setPriceShield(0)
+        setValueShield(dataShieldTypes[0])
+        setPriceTurbo(0)
+        setValueTurbo(dataTurboTypes[0])
+    }
+  }, [valueFullTuning])
+
+  useEffect(() => {
+    switch (valueTransmission.name) {
+      case "Nível 0":
+        //Level 0
+        setPriceTransmission(0)
+        break;
+      case "Nível 1":
+        //Level 1
+        setPriceTransmission(16000)
+        break;
+      case "Nível 2":
+        //Level 2
+        setPriceTransmission(22000)
+        break;
+      case "Nível 3":
+        //Level 3
+        setPriceTransmission(29000)
+        break;
+      case "Nível 4":
+        //Level 4
+        setPriceTransmission(38000)
+    }
+  }, [valueTransmission])
+
+  useEffect(() => {
+    switch (valueSuspension.name) {
+      case "Nível 0":
+        //Level 0
+        setPriceSuspension(0)
+        break;
+      case "Nível 1":
+        //Level 1
+        setPriceSuspension(16000)
+        break;
+      case "Nível 2":
+        //Level 2
+        setPriceSuspension(22000)
+        break;
+      case "Nível 3":
+        //Level 3
+        setPriceSuspension(29000)
+        break;
+      case "Nível 4":
+        //Level 4
+        setPriceSuspension(38000)
+    }
+  }, [valueSuspension])
+
+  useEffect(() => {
+    switch (valueEngine.name) {
+      case "Nível 0":
+        //Level 0
+        setPriceEngine(0)
+        break;
+      case "Nível 1":
+        //Level 1
+        setPriceEngine(16000)
+        break;
+      case "Nível 2":
+        //Level 2
+        setPriceEngine(22000)
+        break;
+      case "Nível 3":
+        //Level 3
+        setPriceEngine(29000)
+        break;
+      case "Nível 4":
+        //Level 4
+        setPriceEngine(38000)
+    }
+  }, [valueEngine])
+
+  useEffect(() => {
+    switch (valueBrake.name) {
+      case "Nível 0":
+        //Level 0
+        setPriceBrake(0)
+        break;
+      case "Nível 1":
+        //Level 1
+        setPriceBrake(16000)
+        break;
+      case "Nível 2":
+        //Level 2
+        setPriceBrake(22000)
+        break;
+      case "Nível 3":
+        //Level 3
+        setPriceBrake(29000)
+        break;
+      case "Nível 4":
+        //Level 4
+        setPriceBrake(39000)
+    }
+  }, [valueBrake])
+
+  useEffect(() => {
+    switch (valueShield.name) {
+      case "Nível 0":
+        //Level 0
+        setPriceShield(0)
+        break;
+      case "Nível 1":
+        //Level 1
+        setPriceShield(29000)
+        break;
+      case "Nível 2":
+        //Level 2
+        setPriceShield(44000)
+        break;
+      case "Nível 3":
+        //Level 3
+        setPriceShield(59000)
+        break;
+      case "Nível 4":
+        //Level 4
+        setPriceShield(74000)
+      case "Nível 5":
+        //Level 5
+        setPriceShield(90000)
+    }
+  }, [valueShield])
+
+  useEffect(() => {
+    switch (valueTurbo.name) {
+      case "Não":
+        //Sem Turbo
+        setPriceTurbo(0)
+        break;
+      case "Sim":
+        //Com Turbo
+        setPriceTurbo(15000)
+        break;
+    }
+  }, [valueTurbo])
+
+  useEffect(() => {
+    if (selledKits > 0) {
+      storeKits(selledKits.toString())
+    }
+    if (selledPneus > 0) {
+      storePneus(selledPneus.toString())
+    }
+  }, [selledKits, selledPneus])
 
   function onFinished() {
     setSelledKits((selledKits) => selledKits + countKits)
     setSelledPneus((selledPneus) => selledPneus + countPneus)
-
-    console.log("selledKits finished " + selledKits.toString())
-    console.log("selledPneus finished " + selledPneus.toString())
 
     setIsPartner(false)
     setCountKits(0)
@@ -342,303 +517,119 @@ export default function Home() {
     setCountPneus((countPneus) => countPneus + 1)
   }
 
-  useEffect(() => {
-    switch (valueFullTuning.name) {
-      case "Sem Full Tuning":
-        //Sem Full Tuning
-        setPriceFullTuning(0)
-        break;
-      case "LV3 - Sem Blindagem":
-        //Level 3 - Sem Blindagem
-        setPriceFullTuning(127000)
-
-        //Set all selection default
-        setPriceTransmission(0)
-        setValueTransmission(dataDefaultTypes[0])
-        setPriceSuspension(0)
-        setValueSuspension(dataDefaultTypes[0])
-        setPriceEngine(0)
-        setValueEngine(dataDefaultTypes[0])
-        setPriceBrake(0)
-        setValueBrake(dataDefaultTypes[0])
-        setPriceShield(0)
-        setValueShield(dataShieldTypes[0])
-        setPriceTurbo(0)
-        setValueTurbo(dataTurboTypes[0])
-        break;
-      case "LV3 - Com Blindagem":
-        //Level 3 - Com Blindagem
-        setPriceFullTuning(215000)
-
-        //Set all selection default
-        setPriceTransmission(0)
-        setValueTransmission(dataDefaultTypes[0])
-        setPriceSuspension(0)
-        setValueSuspension(dataDefaultTypes[0])
-        setPriceEngine(0)
-        setValueEngine(dataDefaultTypes[0])
-        setPriceBrake(0)
-        setValueBrake(dataDefaultTypes[0])
-        setPriceShield(0)
-        setValueShield(dataShieldTypes[0])
-        setPriceTurbo(0)
-        setValueTurbo(dataTurboTypes[0])
-        break;
-      case "LV4 - Sem Blindagem":
-        //Level 4 - Sem Blindagem
-        setPriceFullTuning(160000)
-
-        //Set all selection default
-        setPriceTransmission(0)
-        setValueTransmission(dataDefaultTypes[0])
-        setPriceSuspension(0)
-        setValueSuspension(dataDefaultTypes[0])
-        setPriceEngine(0)
-        setValueEngine(dataDefaultTypes[0])
-        setPriceBrake(0)
-        setValueBrake(dataDefaultTypes[0])
-        setPriceShield(0)
-        setValueShield(dataShieldTypes[0])
-        setPriceTurbo(0)
-        setValueTurbo(dataTurboTypes[0])
-        break;
-      case "LV4 - Com Blindagem":
-        //Level 4 - Com Blindagem
-        setPriceFullTuning(247000)
-
-        //Set all selection default
-        setPriceTransmission(0)
-        setValueTransmission(dataDefaultTypes[0])
-        setPriceSuspension(0)
-        setValueSuspension(dataDefaultTypes[0])
-        setPriceEngine(0)
-        setValueEngine(dataDefaultTypes[0])
-        setPriceBrake(0)
-        setValueBrake(dataDefaultTypes[0])
-        setPriceShield(0)
-        setValueShield(dataShieldTypes[0])
-        setPriceTurbo(0)
-        setValueTurbo(dataTurboTypes[0])
-    }
-  }, [valueFullTuning])
-
-  useEffect(() => {
-    switch (valueTransmission.name) {
-      case "Nível 0":
-        //Level 0
-        setPriceTransmission(0)
-        break;
-      case "Nível 1":
-        //Level 1
-        setPriceTransmission(15000)
-        break;
-      case "Nível 2":
-        //Level 2
-        setPriceTransmission(21000)
-        break;
-      case "Nível 3":
-        //Level 3
-        setPriceTransmission(28000)
-        break;
-      case "Nível 4":
-        //Level 4
-        setPriceTransmission(36000)
-    }
-  }, [valueTransmission])
-
-  useEffect(() => {
-    switch (valueEngine.name) {
-      case "Nível 0":
-        //Level 0
-        setPriceEngine(0)
-        break;
-      case "Nível 1":
-        //Level 1
-        setPriceEngine(15000)
-        break;
-      case "Nível 2":
-        //Level 2
-        setPriceEngine(21000)
-        break;
-      case "Nível 3":
-        //Level 3
-        setPriceEngine(28000)
-        break;
-      case "Nível 4":
-        //Level 4
-        setPriceEngine(37000)
-    }
-  }, [valueEngine])
-
-  useEffect(() => {
-    switch (valueBrake.name) {
-      case "Nível 0":
-        //Level 0
-        setPriceBrake(0)
-        break;
-      case "Nível 1":
-        //Level 1
-        setPriceBrake(15000)
-        break;
-      case "Nível 2":
-        //Level 2
-        setPriceBrake(21000)
-        break;
-      case "Nível 3":
-        //Level 3
-        setPriceBrake(28000)
-        break;
-      case "Nível 4":
-        //Level 4
-        setPriceBrake(36000)
-    }
-  }, [valueBrake])
-
-  useEffect(() => {
-    switch (valueShield.name) {
-      case "Nível 0":
-        //Level 0
-        setPriceShield(0)
-        break;
-      case "Nível 1":
-        //Level 1
-        setPriceShield(28000)
-        break;
-      case "Nível 2":
-        //Level 2
-        setPriceShield(43000)
-        break;
-      case "Nível 3":
-        //Level 3
-        setPriceShield(58000)
-        break;
-      case "Nível 4":
-        //Level 4
-        setPriceShield(73000)
-      case "Nível 5":
-        //Level 5
-        setPriceShield(88000)
-    }
-  }, [valueShield])
-
-  useEffect(() => {
-    switch (valueTurbo.name) {
-      case "Não":
-        //Sem Turbo
-        setPriceTurbo(0)
-        break;
-      case "Sim":
-        //Com Turbo
-        setPriceTurbo(15000)
-        break;
-    }
-  }, [valueTurbo])
-
   return (
 
-    <div className="w-full ">
-      <div className="w-full flex-row justify-center align-center rounded-2xl">
+    <div className="w-full h-screen">
+      <div className="w-full lg:grid lg:grid-cols-3 lg:gap-7  flex-row justify-center align-center rounded-2xl">
 
-        {/* TOTAL KITS AND PNEUS SELLED */}
-        <div className="flex-row w-full my-5 p-5 bg-gray-700 rounded-2xl">
-          <h1 className="w-full text-center text-gray-400 text-4xl font-bold">VENDIDOS HOJE</h1>
-          <div className="flex justify-evenly align-center" >
-            <div className="m-4">
-              <h2 className="w-full text-center text-white text-8xl font-bold">{selledKits}</h2>
-              <h3 className="w-full text-center text-gray-400 text-lg">KITS</h3>
-            </div>
-            <div className="m-4">
-              <h2 className="w-full text-center text-white text-8xl font-bold">{selledPneus}</h2>
-              <h3 className="w-full text-center text-gray-400 text-lg">PNEUS</h3>
-            </div>
-          </div>
-        </div>
-
-        {/* KITS AND PNEUS TO SELL */}
-        <h1 className="w-full mt-7 text-center text-gray-400 text-3xl font-medium">KITS & PNEUS</h1>
-        <div className="flex w-full justify-between mb-4">
-          <div className="flex-row justify-center items-center mr-2 py-4 w-2/4 bg-gray-600 rounded-2xl">
-            <h3 className="text-2xl font-light text-gray-400 text-center w-full">KIT</h3>
-            <h2 className="text-7xl text-white text-center w-full font-bold">{countKits}</h2>
-            <div className="flex justify-evenly">
-              <button className="w-12 h-12 bg-gray-700 text-3xl font-bold rounded-lg" onClick={decreaseKits}>-</button>
-              <button className="w-12 h-12 bg-gray-700 text-3xl font-bold rounded-lg" onClick={increaseKits}>+</button>
+        {/* SELLEDS */}
+        <div className="lg:sticky " >
+          {/* TOTAL KITS AND PNEUS SELLED */}
+          <div className="bg-transparent border border-gray-700 text-white shadow-md flex-row w-full lg:mt-7 p-5 bg-gray-700 rounded-2xl">
+            <h1 className="w-full text-center text-gray-400 text-4xl font-bold">VENDIDOS HOJE</h1>
+            <div className="flex justify-evenly align-center" >
+              <div className="m-4">
+                <h2 className="w-full text-center text-white text-8xl font-bold">{selledKits}</h2>
+                <h3 className="w-full text-center text-gray-400 text-lg">KITS</h3>
+              </div>
+              <div className="m-4">
+                <h2 className="w-full text-center text-white text-8xl font-bold">{selledPneus}</h2>
+                <h3 className="w-full text-center text-gray-400 text-lg">PNEUS</h3>
+              </div>
             </div>
           </div>
 
-          <div className="flex-row justify-center items-center ml-2 py-4  w-2/4 bg-gray-600 rounded-2xl">
-            <h3 className="text-2xl font-light text-gray-400 text-center w-full">PNEU</h3>
-            <h2 className="text-7xl text-white text-center w-full font-bold">{countPneus}</h2>
-            <div className="flex justify-evenly">
-              <button className="w-12 h-12 bg-gray-700 text-3xl font-bold rounded-lg" onClick={decreasePneus}>-</button>
-              <button className="w-12 h-12 bg-gray-700 text-3xl font-bold rounded-lg" onClick={increasePneus}>+</button>
+          {/* KITS AND PNEUS TO SELL */}
+          <h1 className="w-full mt-7 mb-4 text-center text-gray-400 text-3xl font-medium">KITS & PNEUS</h1>
+          <div className="flex w-full justify-between mb-4">
+            <div className=" bg-transparent border h-48 border-gray-700 text-white shadow-md flex-row justify-center items-center mr-2 py-4 w-2/4 bg-gray-600 rounded-2xl relative overflow-hidden">
+              <h3 className="text-2xl font-light text-gray-400 text-center w-full">KIT</h3>
+              <h2 className="text-7xl text-white text-center w-full font-bold">{countKits}</h2>
+              <div className="flex justify-evenly">
+                <button className="focus:outline-none focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 h-12 border-t border-r rounded-tr-lg border-gray-700  shadow-md  text-3xl font-bold  absolute bottom-0 left-0 w-1/2" onClick={decreaseKits}>-</button>
+                <button className="focus:outline-none focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 h-12 border-t border-l rounded-tl-lg border-gray-700  text-3xl font-bold  absolute bottom-0 right-0 w-1/2" onClick={increaseKits}>+</button>
+              </div>
+            </div>
+
+            <div className=" bg-transparent border h-48 border-gray-700 text-white shadow-md flex-row justify-center items-center mr-2 py-4 w-2/4 bg-gray-600 rounded-2xl relative overflow-hidden">
+              <h3 className="text-2xl font-light text-gray-400 text-center w-full">PNEU</h3>
+              <h2 className="text-7xl text-white text-center w-full font-bold">{countPneus}</h2>
+              <div className="flex justify-evenly">
+                <button className="focus:outline-none focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 h-12 border-t border-r rounded-tr-lg border-gray-700  shadow-md  text-3xl font-bold  absolute bottom-0 left-0 w-1/2" onClick={decreasePneus}>-</button>
+                <button className="focus:outline-none focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 h-12 border-t border-l rounded-tl-lg border-gray-700  text-3xl font-bold  absolute bottom-0 right-0 w-1/2" onClick={increasePneus}>+</button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex w-full items-center justify-between">
-          <h4 className="text-center text-white text-2xl">Parceria</h4>
-          <Switch
-            checked={isPartner}
-            onChange={setIsPartner}
-            className={`${isPartner ? 'bg-teal-900' : 'bg-teal-700'}
+          <div className="flex w-full items-center justify-between">
+            <h4 className="text-center text-white text-2xl">Parceria</h4>
+            <Switch
+              checked={isPartner}
+              onChange={setIsPartner}
+              className={`${isPartner ? 'bg-green-400' : 'bg-gray-700'}
           relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
-          >
-            <span className="sr-only">Use setting</span>
-            <span
-              aria-hidden="true"
-              className={`${isPartner ? 'translate-x-5' : 'translate-x-0'}
+            >
+              <span className="sr-only">Use setting</span>
+              <span
+                aria-hidden="true"
+                className={`${isPartner ? 'translate-x-5' : 'translate-x-0'}
             pointer-events-none inline-block h-6 w-6 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
-            />
-          </Switch>
+              />
+            </Switch>
+          </div>
         </div>
 
-        {/* SELECTS FROM PERFORMANCE */}
-        <h1 className="w-full mt-7 text-center text-gray-400 text-3xl font-medium">PERFORMANCE</h1>
-        <div className="w-full">
-          {/* FULL TUNING */}
-          <div className="flex-row mt-4 justify-center items-center">
-            <h3 className="font-medium text-xl text-left ml-3 text-white">Full Tuning</h3>
-            <Select priceFullTuning={priceFullTuning} data={dataFullTuningTypes} value={valueFullTuning} setValue={setValueFullTuning} />
+        {/* PERFORMANCE */}
+        <div className="lg:sticky top-0 lg:after:content-[''] lg:after:h-full lg:after:absolute lg:after:-left-3 lg:after:top-0 lg:after:w-[1px] lg:after:bg-gray-700 lg:before:content-[''] lg:before:h-full lg:before:absolute lg:before:-right-3 lg:before:top-0 lg:before:w-[1px] lg:before:bg-gray-700">
+          {/* SELECTS FROM PERFORMANCE */}
+          <h1 className="w-full mt-7 text-center text-gray-400 text-3xl font-medium">PERFORMANCE</h1>
+          <div className="w-full">
+            {/* FULL TUNING */}
+            <div className="flex-row mt-4 justify-center items-center">
+              <h3 className="font-medium text-xl text-left ml-3 text-white">Full Tuning</h3>
+              <Select priceFullTuning={priceFullTuning} data={dataFullTuningTypes} value={valueFullTuning} setValue={setValueFullTuning} />
+            </div>
+
+            {/* TRANSMISSION */}
+            <div className="flex-row mt-4 justify-center items-center">
+              <h3 className="font-medium text-xl text-left ml-3 text-white">Transmissão</h3>
+              <Select priceFullTuning={priceFullTuning} data={dataDefaultTypes} value={valueTransmission} setValue={setValueTransmission} />
+            </div>
+
+            {/* SUSPENSION */}
+            <div className="flex-row mt-4 justify-center items-center">
+              <h3 className="font-medium text-xl text-left ml-3 text-white">Suspensão</h3>
+              <Select priceFullTuning={priceFullTuning} data={dataDefaultTypes} value={valueSuspension} setValue={setValueSuspension} />
+            </div>
+
+            {/* ENGINE */}
+            <div className="flex-row mt-4 justify-center items-center">
+              <h3 className="font-medium text-xl text-left ml-3 text-white">Motor</h3>
+              <Select priceFullTuning={priceFullTuning} data={dataDefaultTypes} value={valueEngine} setValue={setValueEngine} />
+            </div>
+
+            {/* BRAKE */}
+            <div className="flex-row mt-4 justify-center items-center">
+              <h3 className="font-medium text-xl text-left ml-3 text-white">Freio</h3>
+              <Select priceFullTuning={priceFullTuning} data={dataDefaultTypes} value={valueBrake} setValue={setValueBrake} />
+            </div>
+
+            {/* SHIELD */}
+            <div className="flex-row mt-4 justify-center items-center">
+              <h3 className="font-medium text-xl text-left ml-3 text-white">Blindagem</h3>
+              <Select priceFullTuning={priceFullTuning} data={dataShieldTypes} value={valueShield} setValue={setValueShield} />
+            </div>
+
+            {/* TURBO */}
+            <div className="flex-row mt-4 justify-center items-center">
+              <h3 className="font-medium text-xl text-left ml-3 text-white">Turbo</h3>
+              <Select priceFullTuning={priceFullTuning} data={dataTurboTypes} value={valueTurbo} setValue={setValueTurbo} />
+            </div>
           </div>
-
-          {/* TRANSMISSION */}
-          <div className="flex-row mt-4 justify-center items-center">
-            <h3 className="font-medium text-xl text-left ml-3 text-white">Transmissão</h3>
-            <Select priceFullTuning={priceFullTuning} data={dataDefaultTypes} value={valueTransmission} setValue={setValueTransmission} />
-          </div>
-
-          {/* SUSPENSION */}
-          <div className="flex-row mt-4 justify-center items-center">
-            <h3 className="font-medium text-xl text-left ml-3 text-white">Suspensão</h3>
-            <Select priceFullTuning={priceFullTuning} data={dataDefaultTypes} value={valueSuspension} setValue={setValueSuspension} />
-          </div>
-
-          {/* ENGINE */}
-          <div className="flex-row mt-4 justify-center items-center">
-            <h3 className="font-medium text-xl text-left ml-3 text-white">Motor</h3>
-            <Select priceFullTuning={priceFullTuning} data={dataDefaultTypes} value={valueEngine} setValue={setValueEngine} />
-          </div>
-
-          {/* BRAKE */}
-          <div className="flex-row mt-4 justify-center items-center">
-            <h3 className="font-medium text-xl text-left ml-3 text-white">Freio</h3>
-            <Select priceFullTuning={priceFullTuning} data={dataDefaultTypes} value={valueBrake} setValue={setValueBrake} />
-          </div>
-
-          {/* SHIELD */}
-          <div className="flex-row mt-4 justify-center items-center">
-            <h3 className="font-medium text-xl text-left ml-3 text-white">Blindagem</h3>
-            <Select priceFullTuning={priceFullTuning} data={dataShieldTypes} value={valueShield} setValue={setValueShield} />
-          </div>
-
-          {/* TURBO */}
-          <div className="flex-row mt-4 justify-center items-center">
-            <h3 className="font-medium text-xl text-left ml-3 text-white">Turbo</h3>
-            <Select priceFullTuning={priceFullTuning} data={dataTurboTypes} value={valueTurbo} setValue={setValueTurbo} />
-          </div>
+        </div>
 
 
-
+        {/* APPEARANCE */}
+        <div className="lg:sticky pb-24">
           {/* SWITCHS FROM APPEARANCE */}
           <h1 className="w-full mt-7 text-center text-gray-400 text-3xl font-medium">APARÊNCIA</h1>
 
@@ -683,7 +674,7 @@ export default function Home() {
 
 
           {/* PAINT */}
-          <div className="bg-gray-900 py-2 px-3 mb-24 rounded-lg">
+          <div className="bg-transparent border border-gray-700 text-white shadow-md bg-gray-900 py-2 px-3 mb-8 rounded-lg">
             <h4 className="text-white text-xl font-bold text-left">
               Pinturas
               <span className="text-center text-gray-400 text-lg font-light"> - Respray</span>
@@ -708,14 +699,16 @@ export default function Home() {
             <SwitchComponent hasItem={hasColorDashboard} setHasItem={setHasColorDashboard} itemTitle={"Painel"} itemSubtitle={"Dashboard"} />
           </div>
 
+          <span className="text-gray-700 pb-3">Created by <a href="#" className="text-gray-600 hover:text-green-400">AndersonPGS</a></span>
 
-          {/* SUM AND FINISH */}
-          <div className="flex left-1/2 -translate-x-2/4 w-full bottom-0 bg-gray-900 rounded-lg items-center fixed">
-            <h3 className="w-1/2 text-gray-400 text-3xl">$ <span className="text-white font-bold">{totalPrice}</span></h3>
-            <button className="w-1/2 h-24 bg-emerald-700 rounded-lg text-3xl font-bold" onClick={onFinished}>FINALIZAR</button>
-          </div>
         </div>
+
       </div >
+      {/* SUM AND FINISH */}
+      {totalPrice != 0 && <div className="bg-transparent border border-gray-700 text-white shadow-md flex left-1/2 -translate-x-2/4 w-full  bottom-0 bg-black rounded-lg items-center fixed">
+        <h3 className="w-1/2 text-gray-400 text-3xl">$ <span className="text-white font-bold">{totalPrice}</span></h3>
+        <button className="w-1/2 h-24 bg-green-500 rounded-lg text-3xl font-bold" onClick={onFinished}>FINALIZAR</button>
+      </div>}
     </div >
   );
 }
