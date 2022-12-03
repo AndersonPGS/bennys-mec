@@ -391,7 +391,7 @@ export default function Home() {
         break;
       case "Nível 4":
         //Level 4
-        setPriceEngine(38000)
+        setPriceEngine(40000)
     }
   }, [valueEngine])
 
