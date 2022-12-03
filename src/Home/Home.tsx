@@ -542,11 +542,11 @@ export default function Home() {
         <div className="lg:sticky " >
           {/* TOTAL KITS AND PNEUS SELLED */}
           <div className="relative bg-transparent border border-gray-700 text-white shadow-md flex-row w-full lg:mt-7 p-5 rounded-2xl">
-            <button onClick={resetData} className="absolute right-6 top-7 lg:right-7 lg:top-7"><svg className="w-6 h-6 stroke-slate-400 hover:stroke-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <button onClick={resetData} className="absolute right-6 top-7 lg:right-7 lg:top-7"><svg className="w-6 h-6 stroke-slate-400 transition-colors hover:stroke-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
             </svg>
             </button>
-            <h1 className="w-full text-center text-gray-400 lg:text-3xl md:text-3xl text-2xl font-bold">VENDIDOS HOJE</h1>
+            <h1 className="w-full text-center text-gray-400 md:text-3xl text-2xl font-bold">VENDIDOS HOJE</h1>
             <div className="flex justify-evenly align-center" >
               <div className="m-4">
                 <h2 className="w-full text-center text-white text-8xl font-bold">{selledKits}</h2>
@@ -560,14 +560,26 @@ export default function Home() {
           </div>
 
           {/* KITS AND PNEUS TO SELL */}
-          <h1 className="mt-7 mb-2 w-full text-center text-gray-400 lg:text-3xl md:text-3xl text-2xl font-bold">KITS & PNEUS</h1>
+          <h1 className="mt-7 mb-2 w-full text-center flex items-center justify-center text-gray-400 md:text-3xl text-2xl font-bold"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.9" stroke="currentColor" className="w-6 h-6 md:w-7 md:h-7 mr-3 -mt-1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+          </svg>
+            KITS & PNEUS
+          </h1>
           <div className="flex w-full justify-between mb-4">
             <div className=" bg-transparent border h-48 border-gray-700 text-white shadow-md flex-row justify-center items-center mr-2 py-4 w-2/4 rounded-2xl relative overflow-hidden">
               <h3 className="text-2xl font-light text-gray-400 text-center w-full">KIT</h3>
               <h2 className="text-7xl text-white text-center w-full font-bold">{countKits}</h2>
               <div className="flex justify-evenly">
-                <button className="focus:outline-none focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 h-12 border-t border-r rounded-tr-lg border-gray-700  shadow-md  text-3xl font-bold  absolute bottom-0 left-0 w-1/2" onClick={decreaseKits}>-</button>
-                <button className="focus:outline-none focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 h-12 border-t border-l rounded-tl-lg border-gray-700  text-3xl font-bold  absolute bottom-0 right-0 w-1/2" onClick={increaseKits}>+</button>
+                <button className="focus:outline-none flex items-center justify-center  transition-colors hover:border-red-600 hover:bg-red-500 focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 h-12 border-t border-r rounded-tr-lg border-gray-700  shadow-md  text-3xl font-bold  absolute bottom-0 left-0 w-1/2" onClick={decreaseKits}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                  </svg>
+                </button>
+                <button className="focus:outline-none flex items-center justify-center  transition-colors hover:border-green-600 hover:bg-green-500 focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 h-12 border-t border-l rounded-tl-lg border-gray-700  text-3xl font-bold  absolute bottom-0 right-0 w-1/2" onClick={increaseKits}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                </button>
               </div>
             </div>
 
@@ -575,13 +587,26 @@ export default function Home() {
               <h3 className="text-2xl font-light text-gray-400 text-center w-full">PNEU</h3>
               <h2 className="text-7xl text-white text-center w-full font-bold">{countPneus}</h2>
               <div className="flex justify-evenly">
-                <button className="focus:outline-none focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 h-12 border-t border-r rounded-tr-lg border-gray-700  shadow-md  text-3xl font-bold  absolute bottom-0 left-0 w-1/2" onClick={decreasePneus}>-</button>
-                <button className="focus:outline-none focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 h-12 border-t border-l rounded-tl-lg border-gray-700  text-3xl font-bold  absolute bottom-0 right-0 w-1/2" onClick={increasePneus}>+</button>
+                <button className="focus:outline-none flex items-center justify-center  transition-colors hover:border-red-600 hover:bg-red-500 focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 h-12 border-t border-r rounded-tr-lg border-gray-700  shadow-md  text-3xl font-bold  absolute bottom-0 left-0 w-1/2" onClick={decreasePneus}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                  </svg>
+                </button>
+                <button className="focus:outline-none flex items-center justify-center transition-colors hover:border-green-600 hover:bg-green-500 focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 h-12 border-t border-l rounded-tl-lg border-gray-700  text-3xl font-bold  absolute bottom-0 right-0 w-1/2" onClick={increasePneus}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
-          <div className="flex w-full items-center justify-between">
-            <h4 className="text-center text-white text-2xl">Parceria</h4>
+          <div className="flex w-full p-2 items-center justify-between bg-transparent border rounded-lg border-gray-700 shadow-md">
+            <h4 className="text-center text-white text-xl flex items-center font-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 mr-1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+              </svg>
+              Parceria
+            </h4>
             <Switch
               checked={isPartner}
               onChange={setIsPartner}
@@ -601,7 +626,13 @@ export default function Home() {
         {/* PERFORMANCE */}
         <div className="lg:sticky top-0 lg:after:content-[''] lg:after:h-full lg:after:absolute lg:after:-left-3 lg:after:top-0 lg:after:w-[1px] lg:after:bg-gray-700 lg:before:content-[''] lg:before:h-full lg:before:absolute lg:before:-right-3 lg:before:top-0 lg:before:w-[1px] lg:before:bg-gray-700">
           {/* SELECTS FROM PERFORMANCE */}
-          <h1 className="mt-7 w-full text-center text-gray-400 lg:text-3xl md:text-3xl text-2xl font-bold">DESEMPENHO</h1>
+          <h1 className="mt-7 w-full text-center flex items-center justify-center text-gray-400 md:text-3xl text-2xl font-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 md:w-7 md:h-7 mr-3 -mt-1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.867 19.125h.008v.008h-.008v-.008z" />
+            </svg>
+            DESEMPENHO
+          </h1>
           <div className="w-full">
             {/* FULL TUNING */}
             <div className="flex-row mt-4 justify-center items-center">
@@ -651,7 +682,12 @@ export default function Home() {
         {/* APPEARANCE */}
         <div className="lg:sticky pb-24">
           {/* SWITCHS FROM APPEARANCE */}
-          <h1 className="mt-7 w-full text-center text-gray-400 lg:text-3xl md:text-3xl text-2xl font-bold">APARÊNCIA</h1>
+          <h1 className="mt-7 w-full text-center flex items-center justify-center text-gray-400 md:text-3xl text-2xl font-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 md:w-7 md:h-7 mr-3 -mt-1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+            </svg>
+            APARÊNCIA
+          </h1>
 
           {/* SPOILER */}
           <SwitchComponent hasItem={hasSpoiler} setHasItem={setHasSpoiler} itemTitle={"Aerofólio"} itemSubtitle={"Spoiler"} />
@@ -726,8 +762,12 @@ export default function Home() {
       </div >
       {/* SUM AND FINISH */}
       <div className={`bg-transparent border border-gray-700 text-white shadow-md flex left-1/2 -translate-x-2/4 w-full  bg-black rounded-lg items-center fixed ${totalPrice == 0 ? '-bottom-96' : 'bottom-0'} transition-all`}>
-        <h3 className="w-1/2 text-gray-400 text-3xl">$ <span className="text-white font-bold">{totalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}</span></h3>
-        <button className="w-1/2 h-24 bg-green-500 rounded-lg text-3xl font-bold" onClick={onFinished}>FINALIZAR</button>
+        <h3 className="w-1/2 text-gray-400 text-2xl md:text-3xl flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 mr-2 md:w-8 md:h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+          </svg>
+          <span className="text-white font-bold">{totalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}</span></h3>
+        <button className="w-1/2 h-24 hover:bg-green-600 transition-colors bg-green-500 rounded-lg text-3xl font-bold [text-shadow:_0_2px_15px_rgb(0_40_5_/_40%)]" onClick={onFinished}>FINALIZAR</button>
       </div>
     </div >
   );
