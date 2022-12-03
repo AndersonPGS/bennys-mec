@@ -1,4 +1,5 @@
 import { Switch } from "@headlessui/react";
+import copy from "copy-to-clipboard";
 import { useEffect, useState } from "react";
 import Select from "./Components/Select";
 import SwitchComponent from "./Components/Switch";
@@ -82,7 +83,7 @@ export default function Home() {
     localStorage.setItem("date", value)
   }
 
-  const getStoredDate = async () => {
+  const getStoredDate = () => {
     const value = localStorage.getItem("date")
 
     if (value !== null) {
@@ -525,7 +526,7 @@ export default function Home() {
         {/* SELLEDS */}
         <div className="lg:sticky " >
           {/* TOTAL KITS AND PNEUS SELLED */}
-          <div className="bg-transparent border border-gray-700 text-white shadow-md flex-row w-full lg:mt-7 p-5 bg-gray-700 rounded-2xl">
+          <div className="bg-transparent border border-gray-700 text-white shadow-md flex-row w-full lg:mt-7 p-5 rounded-2xl">
             <h1 className="w-full text-center text-gray-400 text-4xl font-bold">VENDIDOS HOJE</h1>
             <div className="flex justify-evenly align-center" >
               <div className="m-4">
@@ -542,7 +543,7 @@ export default function Home() {
           {/* KITS AND PNEUS TO SELL */}
           <h1 className="w-full mt-7 mb-4 text-center text-gray-400 text-3xl font-medium">KITS & PNEUS</h1>
           <div className="flex w-full justify-between mb-4">
-            <div className=" bg-transparent border h-48 border-gray-700 text-white shadow-md flex-row justify-center items-center mr-2 py-4 w-2/4 bg-gray-600 rounded-2xl relative overflow-hidden">
+            <div className=" bg-transparent border h-48 border-gray-700 text-white shadow-md flex-row justify-center items-center mr-2 py-4 w-2/4 rounded-2xl relative overflow-hidden">
               <h3 className="text-2xl font-light text-gray-400 text-center w-full">KIT</h3>
               <h2 className="text-7xl text-white text-center w-full font-bold">{countKits}</h2>
               <div className="flex justify-evenly">
@@ -551,7 +552,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className=" bg-transparent border h-48 border-gray-700 text-white shadow-md flex-row justify-center items-center mr-2 py-4 w-2/4 bg-gray-600 rounded-2xl relative overflow-hidden">
+            <div className=" bg-transparent border h-48 border-gray-700 text-white shadow-md flex-row justify-center items-center mr-2 py-4 w-2/4 rounded-2xl relative overflow-hidden">
               <h3 className="text-2xl font-light text-gray-400 text-center w-full">PNEU</h3>
               <h2 className="text-7xl text-white text-center w-full font-bold">{countPneus}</h2>
               <div className="flex justify-evenly">
@@ -581,7 +582,7 @@ export default function Home() {
         {/* PERFORMANCE */}
         <div className="lg:sticky top-0 lg:after:content-[''] lg:after:h-full lg:after:absolute lg:after:-left-3 lg:after:top-0 lg:after:w-[1px] lg:after:bg-gray-700 lg:before:content-[''] lg:before:h-full lg:before:absolute lg:before:-right-3 lg:before:top-0 lg:before:w-[1px] lg:before:bg-gray-700">
           {/* SELECTS FROM PERFORMANCE */}
-          <h1 className="w-full mt-7 text-center text-gray-400 text-3xl font-medium">PERFORMANCE</h1>
+          <h1 className="w-full mt-7 text-center text-gray-400 text-3xl font-medium">DESEMPENHO</h1>
           <div className="w-full">
             {/* FULL TUNING */}
             <div className="flex-row mt-4 justify-center items-center">
@@ -674,7 +675,7 @@ export default function Home() {
 
 
           {/* PAINT */}
-          <div className="bg-transparent border border-gray-700 text-white shadow-md bg-gray-900 py-2 px-3 mb-8 rounded-lg">
+          <div className="bg-transparent border border-gray-700 text-white shadow-md  py-2 px-3 mb-8 rounded-lg">
             <h4 className="text-white text-xl font-bold text-left">
               Pinturas
               <span className="text-center text-gray-400 text-lg font-light"> - Respray</span>
@@ -699,7 +700,7 @@ export default function Home() {
             <SwitchComponent hasItem={hasColorDashboard} setHasItem={setHasColorDashboard} itemTitle={"Painel"} itemSubtitle={"Dashboard"} />
           </div>
 
-          <span className="text-gray-700 pb-3">Created by <a href="#" className="text-gray-600 hover:text-green-400">AndersonPGS</a></span>
+          <span className="text-gray-700 pb-3 ">Developed by <a onClick={() => { copy("Anderson Paiva#0221"); alert(`Usuário do Discord copiado 🤝`); }} className="text-gray-600 hover:text-green-400 cursor-pointer">Anderson Paiva#0221</a></span>
 
         </div>
 

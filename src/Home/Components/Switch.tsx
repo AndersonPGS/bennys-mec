@@ -9,7 +9,7 @@ type SwitchComponentType = {
 
 export default function SwitchComponent({ hasItem, setHasItem, itemTitle, itemSubtitle }: SwitchComponentType) {
   return (
-    <div className="focus:outline-none focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 bg-transparent border border-gray-700 text-white shadow-md flex items-center justify-between bg-gray-900 py-2 my-2 px-3 rounded-lg">
+    <div className="bg-transparent focus:outline-none focus-visible:border-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-green-300 border border-gray-700 text-white shadow-md flex items-center justify-between py-2 my-2 px-3 rounded-lg">
       <h4 className="text-center text-white text-xl font-bold truncate overflow-hidden hover:text-clip">
         {itemTitle}
         <span className="text-center text-gray-400 text-lg font-light"> - {itemSubtitle}</span>
