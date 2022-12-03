@@ -726,7 +726,7 @@ export default function Home() {
       </div >
       {/* SUM AND FINISH */}
       <div className={`bg-transparent border border-gray-700 text-white shadow-md flex left-1/2 -translate-x-2/4 w-full  bg-black rounded-lg items-center fixed ${totalPrice == 0 ? '-bottom-96' : 'bottom-0'} transition-all`}>
-        <h3 className="w-1/2 text-gray-400 text-3xl">$ <span className="text-white font-bold">{totalPrice}</span></h3>
+        <h3 className="w-1/2 text-gray-400 text-3xl">$ <span className="text-white font-bold">{totalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}</span></h3>
         <button className="w-1/2 h-24 bg-green-500 rounded-lg text-3xl font-bold" onClick={onFinished}>FINALIZAR</button>
       </div>
     </div >
