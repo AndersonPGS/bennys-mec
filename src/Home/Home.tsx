@@ -542,11 +542,11 @@ export default function Home() {
         <div className="lg:sticky " >
           {/* TOTAL KITS AND PNEUS SELLED */}
           <div className="relative bg-transparent border border-gray-700 text-white shadow-md flex-row w-full lg:mt-7 p-5 rounded-2xl">
-            <button onClick={resetData} className="absolute right-7 top-7"><svg className="w-6 h-6 stroke-slate-400 hover:stroke-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <button onClick={resetData} className="absolute right-6 top-7 lg:right-7 lg:top-7"><svg className="w-6 h-6 stroke-slate-400 hover:stroke-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
             </svg>
             </button>
-            <h1 className="w-full text-center text-gray-400 text-4xl font-bold">VENDIDOS HOJE</h1>
+            <h1 className="w-full text-center text-gray-400 lg:text-3xl md:text-3xl text-2xl font-bold">VENDIDOS HOJE</h1>
             <div className="flex justify-evenly align-center" >
               <div className="m-4">
                 <h2 className="w-full text-center text-white text-8xl font-bold">{selledKits}</h2>
@@ -560,7 +560,7 @@ export default function Home() {
           </div>
 
           {/* KITS AND PNEUS TO SELL */}
-          <h1 className="w-full mt-7 mb-4 text-center text-gray-400 text-3xl font-medium">KITS & PNEUS</h1>
+          <h1 className="mt-7 mb-2 w-full text-center text-gray-400 lg:text-3xl md:text-3xl text-2xl font-bold">KITS & PNEUS</h1>
           <div className="flex w-full justify-between mb-4">
             <div className=" bg-transparent border h-48 border-gray-700 text-white shadow-md flex-row justify-center items-center mr-2 py-4 w-2/4 rounded-2xl relative overflow-hidden">
               <h3 className="text-2xl font-light text-gray-400 text-center w-full">KIT</h3>
@@ -601,7 +601,7 @@ export default function Home() {
         {/* PERFORMANCE */}
         <div className="lg:sticky top-0 lg:after:content-[''] lg:after:h-full lg:after:absolute lg:after:-left-3 lg:after:top-0 lg:after:w-[1px] lg:after:bg-gray-700 lg:before:content-[''] lg:before:h-full lg:before:absolute lg:before:-right-3 lg:before:top-0 lg:before:w-[1px] lg:before:bg-gray-700">
           {/* SELECTS FROM PERFORMANCE */}
-          <h1 className="w-full mt-7 text-center text-gray-400 text-3xl font-medium">DESEMPENHO</h1>
+          <h1 className="mt-7 w-full text-center text-gray-400 lg:text-3xl md:text-3xl text-2xl font-bold">DESEMPENHO</h1>
           <div className="w-full">
             {/* FULL TUNING */}
             <div className="flex-row mt-4 justify-center items-center">
@@ -651,7 +651,7 @@ export default function Home() {
         {/* APPEARANCE */}
         <div className="lg:sticky pb-24">
           {/* SWITCHS FROM APPEARANCE */}
-          <h1 className="w-full mt-7 text-center text-gray-400 text-3xl font-medium">APARÊNCIA</h1>
+          <h1 className="mt-7 w-full text-center text-gray-400 lg:text-3xl md:text-3xl text-2xl font-bold">APARÊNCIA</h1>
 
           {/* SPOILER */}
           <SwitchComponent hasItem={hasSpoiler} setHasItem={setHasSpoiler} itemTitle={"Aerofólio"} itemSubtitle={"Spoiler"} />
