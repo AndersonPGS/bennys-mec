@@ -79,7 +79,16 @@ export default function Home() {
 
   const date = new Date()
 
+  const resetData = () => {
+    localStorage.setItem("date", date.getDate().toString())
+    localStorage.setItem("kits", "0")
+    localStorage.setItem("pneus", "0")
+    setSelledKits(0)
+    setSelledPneus(0)
+  }
+
   const storeDate = (value: string) => {
+    console.log(value)
     localStorage.setItem("date", value)
   }
 
@@ -90,6 +99,7 @@ export default function Home() {
       return value
     } else {
       const todayDate = date.getDate().toString()
+      localStorage.setItem("date", todayDate)
       return todayDate
     }
   }
@@ -125,14 +135,19 @@ export default function Home() {
   useEffect(() => {
     const currentDate = date.getDate().toString()
     const storedDate = getStoredDate()
-    async function checkStored() {
-      if (await storedDate == currentDate) {
+    function checkStored() {
+      if (storedDate == currentDate) {
+        console.log("aqui")
+        console.log(storedDate)
+        console.log(currentDate)
         getStoredKits()
         getStoredPneus()
       } else {
         storeDate(currentDate)
         storeKits("0")
         storePneus("0")
+        setSelledKits(0)
+        setSelledPneus(0)
       }
     }
     checkStored()
@@ -526,7 +541,11 @@ export default function Home() {
         {/* SELLEDS */}
         <div className="lg:sticky " >
           {/* TOTAL KITS AND PNEUS SELLED */}
-          <div className="bg-transparent border border-gray-700 text-white shadow-md flex-row w-full lg:mt-7 p-5 rounded-2xl">
+          <div className="relative bg-transparent border border-gray-700 text-white shadow-md flex-row w-full lg:mt-7 p-5 rounded-2xl">
+            <button onClick={resetData} className="absolute right-7 top-7"><svg className="w-6 h-6 stroke-slate-400 hover:stroke-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+            </svg>
+            </button>
             <h1 className="w-full text-center text-gray-400 text-4xl font-bold">VENDIDOS HOJE</h1>
             <div className="flex justify-evenly align-center" >
               <div className="m-4">
