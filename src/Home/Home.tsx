@@ -154,8 +154,8 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    let costPerKit = isPartner ? 2000 : 3000
-    let costPerPneu = isPartner ? 500 : 1000
+    let costPerKit = isPartner ? 2500 : 3000
+    let costPerPneu = isPartner ? 800 : 1000
 
     let costKits = costPerKit * countKits
     let costPneus = costPerPneu * countPneus
